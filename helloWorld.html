@@ -1,0 +1,52 @@
+<!-- template.html -->
+<html>
+  <head>
+    <title>Hello React</title>
+    <script src="http://fb.me/react-0.10.0.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.10.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/jsx">
+      /** @jsx React.DOM */
+      // The above declaration must remain intact at the top of the script.
+      // Your code here
+      var CommentBox = React.createClass({
+        render: function() {
+          return (
+            <div className="commentBox">
+              <h1>Comments</h1>
+              <CommentList />
+              <CommentForm />
+            </div>
+          );
+        }
+      });
+      React.renderComponent(
+        <CommentBox />,
+        document.getElementById('content')
+      );
+      var CommentList = React.createClass({
+        render: function() {
+          return (
+            <div className="commentList">
+              <Comment author="Pete Hunt">This is one comment</Comment>
+              <Comment author="Jordan Walke">This is *another* comment</Comment>
+            </div>
+          );
+        }
+      });
+      var CommentForm = React.createClass({
+        render: function() {
+          return (
+            <div className="commentForm">
+              Hello, world! I am a commentForm.
+            </div>
+          );
+        }
+      });
+
+      </script>
+  </body>
+</html>
