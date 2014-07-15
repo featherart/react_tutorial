@@ -27,6 +27,7 @@
         <CommentBox />,
         document.getElementById('content')
       );
+
       var CommentList = React.createClass({
         render: function() {
           return (
@@ -42,6 +43,19 @@
           return (
             <div className="commentForm">
               Hello, world! I am a commentForm.
+            </div>
+          );
+        }
+      });
+      var converter = new Showdown.converter();
+      var Comment = React.createClass({
+        render: function() {
+          return (
+            <div className="comment">
+              <h2 className="commentAuthor">
+                {this.props.author}
+              </h2>
+              {converter.makeHtml(this.props.children.toString())}
             </div>
           );
         }
